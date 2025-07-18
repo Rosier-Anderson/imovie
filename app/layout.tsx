@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
-
 import "./globals.css";
-
-
+import { inter } from "./fonts";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,7 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`antialiased`}
+        className={`${inter.className} antialiased`}
       >
         {children}
       </body>
