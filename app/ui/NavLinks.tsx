@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { NavlinkProps } from "../lib/definitions";
-import { linksData } from "../lib/linksData";
+import { assideLinks } from "../lib/assideLinks";
 
 export function NavLinks() {
-  const links: NavlinkProps[] = linksData;
+  const links: NavlinkProps[] = assideLinks;
   return (
     <>
       <nav className="">
