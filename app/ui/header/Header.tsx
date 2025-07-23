@@ -3,7 +3,8 @@ import React from "react";
 import Logo from "../../../public/assets/img/logo.png";
 import SearchMovie from "../../searchMovie/page";
 import Link from "next/link";
-import Login from "../../login/page";
+import Login from "@/app/(overview)/login/page";
+
 export default function Header() {
   return (
     <header className=" flex justify-between items-center w-full h-20">
@@ -19,7 +20,7 @@ export default function Header() {
         </Link>
       </div>
       <SearchMovie />
-      <Login/>
+      <Login />
     </header>
   );
 }
