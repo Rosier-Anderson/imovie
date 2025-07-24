@@ -1,7 +1,7 @@
 import React from "react";
 import { IoSearchOutline } from "react-icons/io5";
 
-export default function SearchMovie() {
+export default function SearchInput() {
   return (
     <div className="flex justify-center items-center gap-2 ">
       <label

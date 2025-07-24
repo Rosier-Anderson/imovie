@@ -8,22 +8,22 @@ export const assideLinks = [
   {
     label: "Home",
     href: "/",
-    icon: <RiHomeLine className="w-6 h-6" />,
+    icon: <RiHomeLine className="w-8 h-8" />,
   },
   {
     label: "Movie",
-    href: "/movie",
-    icon: <RiMovie2AiLine className="w-6 h-6" />,
+    href: "/movies",
+    icon: <RiMovie2AiLine className="w-8 h-8" />,
   },
   {
     label: "TV",
     href: "/tvs",
-    icon: <GiTv className="w-6 h-6" />,
+    icon: <GiTv className="w-8 h-8" />,
   },
   {
     label: "Search",
     href: "/search",
-    icon: <IoSearchOutline className="w-6 h-6" />,
+    icon: <IoSearchOutline className="w-8 h-8" />,
   },
   {
     label: "",
@@ -34,11 +34,11 @@ export const assideLinks = [
   {
     label: "Saved",
     href: "/saved",
-    icon: <CiSaveDown2 className="w-6 h-6" />,
+    icon: <CiSaveDown2 className="w-8 h-8" />,
   },
   {
     label: "Profile",
     href: "/profile",
-    icon: <CgProfile className="w-6 h-6" />,
+    icon: <CgProfile className="w-8 h-8" />,
   },
 ];
