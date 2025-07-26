@@ -2,8 +2,8 @@
 import { Logo } from "./Logo";
 import React, { useEffect, useState } from "react";
 
-import Login from "@/app/login/page";
 import SearchInput from "../Search/SearchInput";
+import Login from "@/app/(auth)/login/page";
 
 export default function Header() {
   const [showOnMobile, setShowOnMobile] = useState<boolean>(false);

@@ -3,7 +3,7 @@ import "./styles/globals.css";
 import { inter } from "./fonts";
 
 import SideNav from "./ui/(home)/SideNav";
-import Header from "./ui/(home)/header/Header";
+import Header from "./ui/(home)/components/header/Header";
 
 export const metadata: Metadata = {
   title: "I-movie App",
