@@ -8,3 +8,12 @@ export type CustomLinkProps = {
   className?: string;
   children: React.ReactNode;
 };
+
+// Interfaces
+export interface SearchToggleProps {
+  isVisible: boolean;
+  onToggle: () => void;
+}
+export interface SearchFieldProps {
+  isVisible?: boolean;
+}

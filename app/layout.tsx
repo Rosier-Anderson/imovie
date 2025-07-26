@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import "./styles/globals.css";
 import { inter } from "./fonts";
-import Header from "./ui/header/Header";
-import SideNav from "./ui/SideNav";
+
+import SideNav from "./ui/(home)/SideNav";
+import Header from "./ui/(home)/header/Header";
 
 export const metadata: Metadata = {
   title: "I-movie App",

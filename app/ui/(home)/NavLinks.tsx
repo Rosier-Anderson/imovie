@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import clsx from "clsx";
-import { NavlinkProps } from "../lib/definitions";
-import { assideLinks } from "../lib/nav-links";
+import { NavlinkProps } from "../../lib/definitions";
+import { assideLinks } from "../../lib/nav-links";
 import { usePathname } from "next/navigation";
 
 export function NavLinks() {
@@ -11,7 +11,7 @@ export function NavLinks() {
   const links: NavlinkProps[] = assideLinks;
   return (
     <>
-      <nav className="bg-red-400 p-4 w-[300px]">
+      <nav className=" p-4 w-[300px]">
         <ul className="">
           {links.map((link, index) => {
             return (
