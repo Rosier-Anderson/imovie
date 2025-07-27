@@ -1,4 +1,4 @@
-import img from "../../../../public/assets/img/logo.png";
+import img from "../../../../../public/assets/img/logo.png";
 import Link from "next/link";
 import Image from "next/image";
 export const Logo = () => {
