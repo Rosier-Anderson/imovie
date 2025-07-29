@@ -5,7 +5,7 @@ export default function SideNav() {
   return (
     <>
       {" "}
-      <aside className=" flex justify-end items-start max-w-[200px] row-span-3 col-span-1 max-md:hidden ">
+      <aside className="sticky top-10 absolute flex justify-end items-start max-w-[200px] row-span-3 col-span-1 max-md:hidden ">
         <NavLinks />
       </aside>
     </>

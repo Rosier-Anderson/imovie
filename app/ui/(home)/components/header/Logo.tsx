@@ -4,14 +4,15 @@ import Image from "next/image";
 export const Logo = () => {
   return (
     <div className="h-20 flex items-center ">
-      <Link href="/">
+      <Link href="/" className="flex items-center justify-center">
         <Image
           src={img}
           className=""
-          width={200}
-          height={200}
+          width={50}
+          height={50}
           alt="logo image "
         />
+        <h1 className="text-xl  font-bold hidden md:block">I-MOVIE</h1>
       </Link>
     </div>
   );

@@ -23,7 +23,7 @@ export function NavLinks() {
                     href={link.href}
                     className={clsx(
                       "flex items-center gap-2 p-2 border-none rounded-md",
-                      link.href === pathname ? "bg-red-500" : ""
+                      link.href === pathname ? "bg-gray-200" : ""
                     )}
                   >
                     {link.icon}
