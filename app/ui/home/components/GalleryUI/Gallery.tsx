@@ -1,8 +1,10 @@
 import React, { Suspense } from "react";
-import { moviesProps } from "../../../lib/definitions";
 import { fetchAllMovie } from "@/app/lib/data";
+import { moviesProps } from "@/app/lib/definitions";
+import CardSkeleton from "./GalleryCardSkeleton";
 import GalleryCard from "./GalleryCard";
-import CardSkeleton from "../CardSkeleton";
+
+
 
 export default async function Gallery() {
   const data = await fetchAllMovie();

@@ -21,7 +21,7 @@ export default function Header() {
   //   console.log(showOnMobile);
   // }, [showOnMobile]);
   return (
-    <div className="w-full border-b h-20">
+    <div className="w-full bg-white border-b border-b-gray-secondary h-20 sticky top-0 z-50">
       <header className=" flex justify-between items-center max-w-[1200px] h-full mx-auto ">
         <Logo />
         <SearchInput />
