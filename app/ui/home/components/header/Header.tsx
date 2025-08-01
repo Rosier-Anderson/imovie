@@ -1,6 +1,6 @@
 "use client";
 import { Logo } from "./Logo";
-import React, { useEffect, useState } from "react";
+
 
 import SearchInput from "../Search/SearchInput";
 import Login from "@/app/(auth)/login/page";

@@ -8,7 +8,7 @@ export const assideLinks = [
   {
     label: "Home",
     href: "/",
-    icon: <RiHomeLine className="w-8 h-8" />,
+    icon: <RiHomeLine className="w-8 h-8 " />,
   },
   {
     label: "Movie",

@@ -1,7 +1,11 @@
+import Gallery from "@/app/ui/home/components/Gallery";
+
 export default function MoviePage() {
   return (
-    <>
-      <main>Movies</main>
-    </>
+
+      <main className=""><section className=" ">
+        <Gallery />
+      </section></main>
+
   );
 }

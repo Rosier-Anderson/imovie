@@ -11,7 +11,7 @@ export default function SearchField({ isVisible = true }: SearchFieldProps) {
     <div className="flex justify-center items-center gap-2">
       <label
         htmlFor="search-movie"
-        className="flex justify-center items-center py-6 px-2 bg-gray-200 h-10 rounded-md border-node focus-within:outline-2 focus-within:outline-gray-300 duration-200 ease-in-out"
+        className="flex justify-center items-center py-6 px-2 bg-text-gray-primary h-10 rounded-md border-node focus-within:outline-2 focus-within:outline-gray-300 duration-200 ease-in-out"
       >
         <IoSearchOutline className="w-6 h-6 text-gray-400" />
         <input

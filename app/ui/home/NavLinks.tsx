@@ -7,7 +7,7 @@ import { assideLinks } from "../../lib/nav-links";
 import { usePathname } from "next/navigation";
 
 export function NavLinks() {
-  let pathname = usePathname();
+  const  pathname = usePathname();
   const links: NavlinkProps[] = assideLinks;
   return (
     <>
@@ -22,8 +22,8 @@ export function NavLinks() {
                   <Link
                     href={link.href}
                     className={clsx(
-                      "flex items-center gap-2 p-2 border-none rounded-md",
-                      link.href === pathname ? "bg-gray-200" : ""
+                      "flex items-center gap-2 p-2 border-none rounded-md text-gray-tertiary hover:text-black-primary",
+                      link.href === pathname ? "bg-gray-primary " : ""
                     )}
                   >
                     {link.icon}
