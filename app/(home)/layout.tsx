@@ -1,7 +1,8 @@
 // app/(home)/layout.tsx
 
-import SideNav from "../ui/(home)/SideNav";
-import Header from "../ui/(home)/components/header/Header";
+import Header from "@/app/ui/home/components/header/Header";
+import SideNav from "@/app/ui/home/SideNav";
+
 
 export default function HomeLayout({
   children,

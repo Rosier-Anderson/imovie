@@ -19,7 +19,8 @@ export async function fetchAllMovie() {
   try {
     const res = await fetch(url, options);
     if (!res.ok) throw new Error(`Error ${res.status}: ${res.statusText}`);
-    return await res.json();
+    const data = await res.json();
+    return data;
   } catch (error) {
     console.error("Failed to fetch movie data:", error);
     return null;

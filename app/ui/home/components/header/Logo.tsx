@@ -7,10 +7,10 @@ export const Logo = () => {
       <Link href="/" className="flex items-center justify-center">
         <Image
           src={img}
-          className=""
-          width={50}
-          height={50}
+          className="w-15 h-15"
+         
           alt="logo image "
+          priority
         />
         <h1 className="text-xl  font-bold hidden md:block">I-MOVIE</h1>
       </Link>
