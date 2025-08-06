@@ -3,18 +3,10 @@ import React from "react";
 
 import Link from "next/link";
 import { HiOutlineUserGroup } from "react-icons/hi";
+import { galleryCardProps } from "@/app/lib/definitions";
 
-export default function GalleryCard({
-  title,
-  imgURL,
-  vote,
-  release_date,
-}: {
-  title: string;
-  imgURL: string;
-  vote: number;
-  release_date: string;
-}) {
+export default function GalleryCard(props: galleryCardProps) {
+  const { imgURL, title, release_date, vote } = props;
   const PUBLIC_IMG_URL = process.env.NEXT_PUBLIC_IMAGE_BASE;
   return (
     <div className="rounded-lg border border-gray-secondary shadow-md/5 w-[200px] min-h-[340px]  ">
@@ -35,7 +27,9 @@ export default function GalleryCard({
               {title}
             </h1>
             <div className="flex justify-between  text-xs  font-semibold  text-gray-tertiary ">
-              <span className="font-bold text-gray-tertiary">{release_date}</span>
+              <span className="font-bold text-gray-tertiary">
+                {release_date}
+              </span>
               <span className="flex justify-center items-center leading-0 ">
                 <HiOutlineUserGroup className="w-3.5 h-3.5 " />
                 {vote}
