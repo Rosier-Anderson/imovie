@@ -11,6 +11,11 @@ const movieUrl: string =
   "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc";
 const tvUrl: string =
   "https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=1&sort_by=popularity.desc";
+const playingMovieUrl =
+  "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1";
+const upcomingMoviesUrl =
+  "https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1";
+
 /**
  * Fetch movie data from TMDB
  * @param url Full TMDB endpoint URL
@@ -37,5 +42,27 @@ export async function fetchAllTvs() {
   } catch (error) {
     console.error("Failed to fetch movie data:", error);
     return null;
+  }
+}
+
+export async function fetchNowPlayingMovies() {
+  try {
+    const res = await fetch(playingMovieUrl, options);
+    if (!res.ok) throw new Error(`Error ${res.status}: ${res.statusText}`);
+    const data = await res.json();
+    return data;
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+export async function fetchUpcomingMovies() {
+  try {
+    const res = await fetch(upcomingMoviesUrl, options);
+    if (!res.ok) throw new Error(`Error ${res.status}: ${res.statusText}`);
+    const data = await res.json();
+    return data;
+  } catch (err) {
+    console.log(err);
   }
 }

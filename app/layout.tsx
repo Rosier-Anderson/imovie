@@ -13,8 +13,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body cz-shortcut-listen="true" className={`${inter.className} antialiased `}>{children}</body>
+    <html lang="en" suppressHydrationWarning className="dark">
+      <body
+        cz-shortcut-listen="true"
+        className={`${inter.className} antialiased `}
+      >
+        {children}
+      </body>
     </html>
   );
 }

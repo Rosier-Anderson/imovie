@@ -9,7 +9,7 @@ export default function HomeLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="h-screen">
+    <div className="dark:bg-neutral-primary">
       <Header />
       <div className="flex  h-[calc(100%-80px)] max-w-[1200px] mx-auto">
         {" "}

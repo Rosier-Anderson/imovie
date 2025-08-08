@@ -44,12 +44,6 @@ export interface tvResultsProps {
 export interface galleryCardProps {
   imgURL: string;
   title: string;
-  vote: string;
-  release_date: string;
-}
-export interface galleryKeysProps {
-  imgURL: string;
-  title: string;
-  vote: string;
+  vote: number;
   release_date: string;
 }
