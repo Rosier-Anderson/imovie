@@ -17,7 +17,7 @@ export function NavLinks() {
             return (
               <li key={index} className="m-2 ">
                 {index == 4 ? (
-                  <hr className=" w-full dark:text-neutral-secondary" />
+                  <hr className=" w-full opacity-25 dark:text-neutral-secondary" />
                 ) : (
                   <Link
                     href={href}

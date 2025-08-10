@@ -13,7 +13,7 @@ export default function Gallery({
 }) {
   return (
     <Suspense fallback={<GallerySkeleton />}>
-      <ul className=" grid gap-4 grid-flow-row-dense grid-cols-2  md:grid-cols-5 md:grid-rows-4   dark:text-white  bg-gray-primary">
+      <ul className=" grid gap-4 grid-flow-row-dense grid-cols-2 md:grid-cols-5 md:grid-rows-4 dark:text-white">
         {data.map((item, index: number) => {
           return (
             <li key={index} className=" ">

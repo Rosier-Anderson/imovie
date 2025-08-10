@@ -9,11 +9,12 @@ export default function HomeLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className=" grid grid-flow-row-dense  md:grid-cols-[200px_auto]  grid-rows-[70px_auto_auto] gap-2 bg-white dark:bg-neutral-primary  ">
+    <div className="bg-white dark:bg-neutral-primary  ">
       <Header />
-
-      <SideNav />
-      <div className=" rows-span-full  bg-red-primary mx-auto">{children}</div>
+      <div className="flex max-w-[1300px] mx-auto">
+        <SideNav />
+        <div className=" mx-auto mt-15">{children}</div>
+      </div>
     </div>
   );
 }
