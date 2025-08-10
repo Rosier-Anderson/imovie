@@ -13,10 +13,10 @@ export default function Gallery({
 }) {
   return (
     <Suspense fallback={<GallerySkeleton />}>
-      <ul className=" grid gap-8 grid-flow-col  grid-rows-4 grid-cols-5 size-max mt-4">
+      <ul className=" grid gap-4 grid-flow-row-dense grid-cols-2  md:grid-cols-5 md:grid-rows-4   dark:text-white  bg-gray-primary">
         {data.map((item, index: number) => {
           return (
-            <li key={index} className="">
+            <li key={index} className=" ">
               <GalleryCard
                 imgURL={item.poster_path}
                 vote={item.vote_count}

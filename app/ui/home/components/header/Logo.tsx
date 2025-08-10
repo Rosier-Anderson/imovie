@@ -12,7 +12,7 @@ export const Logo = () => {
           alt="logo image "
           priority
         />
-        <h1 className="text-xl  font-bold hidden md:block">I-MOVIE</h1>
+        <h1 className="text-xl dark:text-white font-bold hidden md:block">I-MOVIE</h1>
       </Link>
     </div>
   );

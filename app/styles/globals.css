@@ -1,16 +1,14 @@
+/* ===========================
+   Tailwind Import & Variants
+   =========================== */
 @import "tailwindcss";
+
+/* Dark mode variant */
 @custom-variant dark (&:where(.dark, .dark *));
-@layer utilities {
-  .size-screen {
-    @apply w-screen h-screen;
-  }
-}
 
-/* :root {
---background: #ffffff;
-  --primary: #fb2c36 
-}  */
-
+/* ===========================
+      Theme Variables
+      =========================== */
 @theme {
   --color-*: initial;
   --color-white: white;
@@ -20,7 +18,12 @@
   --color-gray-secondary: #d1d5dc;
   --color-gray-tertiary: #364153;
   --color-neutral-primary: #262626;
+  --color-neutral-secondary: #57534d;
 }
+
+/* ===========================
+      Base Styles
+      =========================== */
 @layer base {
   h1,
   h2,
@@ -29,18 +32,32 @@
   h5 {
     color: var(--color-black-primary);
   }
-}
-/* @media (prefers-color-scheme: dark) {
-  :root {
-  --color-*: initial
-  --color-white-bg: white; 
-  --color-primary-color: #fb2c36;
- 
-} 
-} */
 
-body {
-  background: var(--color-white);
-  /* color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif; */
+  body {
+    background: var(--color-white);
+    /* color: var(--foreground);
+       font-family: Arial, Helvetica, sans-serif; */
+  }
 }
+
+/* ===========================
+      Utilities
+      =========================== */
+@layer utilities {
+  .size-screen {
+    @apply w-screen h-screen;
+  }
+}
+
+/* ===========================
+      Dark Mode (optional future use)
+      =========================== */
+/*
+   @media (prefers-color-scheme: dark) {
+     :root {
+       --color-*: initial;
+       --color-white-bg: white; 
+       --color-primary-color: #fb2c36;
+     }
+   }
+   */
