@@ -49,6 +49,12 @@
   }
 }
 
+@layer utilities {
+  ::-webkit-scrollbar-button {
+    display: none;
+  }
+}
+
 /* ===========================
       Dark Mode (optional future use)
       =========================== */

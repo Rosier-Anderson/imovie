@@ -15,6 +15,8 @@ const playingMovieUrl =
   "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1";
 const upcomingMoviesUrl =
   "https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1";
+const movieGenresUrl =
+  "https://api.themoviedb.org/3/genre/movie/list?language=en";
 
 /**
  * Fetch movie data from TMDB
@@ -61,6 +63,16 @@ export async function fetchUpcomingMovies() {
     const res = await fetch(upcomingMoviesUrl, options);
     if (!res.ok) throw new Error(`Error ${res.status}: ${res.statusText}`);
     const data = await res.json();
+    return data;
+  } catch (err) {
+    console.log(err);
+  }
+}
+export async function fetchMovieGenres() {
+  try {
+    const res = await fetch(movieGenresUrl, options);
+    if (!res.ok) throw new Error(`Error ${res.status}: ${res.statusText}`);
+    const data = res.json();
     return data;
   } catch (err) {
     console.log(err);
