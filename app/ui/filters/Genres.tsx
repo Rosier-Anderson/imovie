@@ -1,28 +1,24 @@
 import { fetchMovieGenres } from "@/app/lib/data";
 import React from "react";
-import CustomLink from "../CustomLink";
 
-export default async function Genres() {
-  const genresData = await fetchMovieGenres();
+export default async function Genres(genres: []) {
+  
 
-  const genres = genresData.genres;
+  const data = genres;
   return (
-    <div className="w-[800px]  ">
+    <div className="w-[800px] overflow-hidden ">
       {" "}
       <ul
-        className="flex gap-6  overflow-x-auto [&::-webkit-scrollbar]:h-2
-  [&::-webkit-scrollbar-track]:bg-gray-primary
-  [&::-webkit-scrollbar-track]:rounded-md
-  [&::-webkit-scrollbar-thumb]:bg-red-primary
-  [&::-webkit-scrollbar-thumb]:rounded-md
- text-sm
+        className="flex gap-2
+         py-4  overflow-x-auto scroll-smooth webkit-scrollbar-style
+ text-sm dark:text-white
 "
       >
-        {genres.map(({ name: name }: { name: string }, index: number) => {
+        {data.map(({ name: name }: { name: string }, index: number) => {
           return (
             <li
               key={index}
-              className=" w- border rounded whitespace-nowrap py-1 px-2 rounded-3xl"
+              className="min-w-32 text-center border border-gray-secondary  whitespace-nowrap p-2 rounded-3xl cursor-pointer"
             >
               {name}
             </li>

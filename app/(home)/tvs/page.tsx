@@ -7,6 +7,7 @@ export default async function TVPage() {
 
   return (
     <main>
+    
       <section>
         <Gallery data={tvData.results} />
       </section>

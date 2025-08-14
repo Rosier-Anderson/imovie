@@ -6,75 +6,43 @@ const options = {
     Authorization: `Bearer ${key}`,
   },
 };
+const BaseUrl: string = "https://api.themoviedb.org/3";
+const pageNumber: number = 1;
+const Language: string = "en-US";
 
-const movieUrl: string =
-  "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc";
-const tvUrl: string =
-  "https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=1&sort_by=popularity.desc";
-const playingMovieUrl =
-  "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1";
-const upcomingMoviesUrl =
-  "https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1";
-const movieGenresUrl =
-  "https://api.themoviedb.org/3/genre/movie/list?language=en";
+const tmdbEndpoints = {
+  movieUrl: `/discover/movie?include_adult=false&include_video=true&Language=${Language}&page=${pageNumber}&sort_by=popularity.desc`,
+  tvUrl: `/discover/tv?include_adult=false&include_null_first_air_dates=false&Language=${Language}|&page=${pageNumber}&sort_by=popularity.desc`,
+  nowPlayingMovieUrl: `/movie/now_playing?Language=${Language}&page=${pageNumber}`,
+  upcomingMoviesUrl: `/movie/upcoming?Language=${Language}&page=${pageNumber}`,
+  movieGenresUrl: `/genre/movie/list?language=en`,
+  tvGenresUrl: `/genre/tv/list?language=en`,
+};
 
 /**
  * Fetch movie data from TMDB
  * @param url Full TMDB endpoint URL
  * @param options Fetch options with headers
  */
-export async function fetchAllMovie() {
+
+export async function fetchFromTMDB(path: string) {
   try {
-    const res = await fetch(movieUrl, options);
+    const res = await fetch(`${BaseUrl}${path}`, options);
     if (!res.ok) throw new Error(`Error ${res.status}: ${res.statusText}`);
     const data = await res.json();
     return data;
-  } catch (error) {
-    console.error("Failed to fetch movie data:", error);
+  } catch (err) {
+    console.error(`Failed to fetch from TMDB: ${path}`, err);
     return null;
   }
 }
 
-export async function fetchAllTvs() {
-  try {
-    const res = await fetch(tvUrl, options);
-    if (!res.ok) throw new Error(`Error ${res.status}: ${res.statusText}`);
-    const data = await res.json();
-    return data;
-  } catch (error) {
-    console.error("Failed to fetch movie data:", error);
-    return null;
-  }
-}
-
-export async function fetchNowPlayingMovies() {
-  try {
-    const res = await fetch(playingMovieUrl, options);
-    if (!res.ok) throw new Error(`Error ${res.status}: ${res.statusText}`);
-    const data = await res.json();
-    return data;
-  } catch (err) {
-    console.log(err);
-  }
-}
-
-export async function fetchUpcomingMovies() {
-  try {
-    const res = await fetch(upcomingMoviesUrl, options);
-    if (!res.ok) throw new Error(`Error ${res.status}: ${res.statusText}`);
-    const data = await res.json();
-    return data;
-  } catch (err) {
-    console.log(err);
-  }
-}
-export async function fetchMovieGenres() {
-  try {
-    const res = await fetch(movieGenresUrl, options);
-    if (!res.ok) throw new Error(`Error ${res.status}: ${res.statusText}`);
-    const data = res.json();
-    return data;
-  } catch (err) {
-    console.log(err);
-  }
-}
+export const fetchAllMovie = () => fetchFromTMDB(tmdbEndpoints.movieUrl);
+export const fetchAllTvs = () => fetchFromTMDB(tmdbEndpoints.tvUrl);
+export const fetchNowPlayingMovies = () =>
+  fetchFromTMDB(tmdbEndpoints.nowPlayingMovieUrl);
+export const fetchUpcomingMovies = () =>
+  fetchFromTMDB(tmdbEndpoints.upcomingMoviesUrl);
+export const fetchMovieGenres = () =>
+  fetchFromTMDB(tmdbEndpoints.movieGenresUrl);
+export const fetchTvGenres = () => fetchFromTMDB(tmdbEndpoints.tvGenresUrl);
