@@ -18,6 +18,7 @@ export default function GalleryCard(props: galleryCardProps) {
             height={200}
             alt="movie image"
             className="object-cover rounded-t-md size-full  "
+            blurDataURL={`https://image.tmdb.org/t/p/w92${imgURL}`}
             loading="lazy"
           />
         </figure>{" "}

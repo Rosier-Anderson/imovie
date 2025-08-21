@@ -1,20 +1,19 @@
-
 import { fetchAllMovie, fetchMovieGenres } from "@/app/lib/data";
-import { moviesDataProps } from "@/app/lib/definitions";
+import { Genre, moviesDataProps } from "@/app/lib/definitions";
 import Genres from "@/app/ui/filters/Genres";
 import Gallery from "@/app/ui/home/components/GalleryUI/Gallery";
 
 export default async function MoviePage() {
-  const data: moviesDataProps = await fetchAllMovie();
- const movieGenresResponse = await fetchMovieGenres();
-const movieGenres = movieGenresResponse.genres;
-
+  const [moviesData, { genres: movieGenres }]: [
+    moviesDataProps,
+    { genres: Genre[] }
+  ] = await Promise.all([fetchAllMovie(), fetchMovieGenres()]);
   return (
     <main className="">
-      <Genres genres ={movieGenres.genres}/>
+      <Genres data={movieGenres} />
       <section className="">
         <h1 className="">Suggest For You</h1>
-        <Gallery data={data.results} />
+        <Gallery data={moviesData.results} />
       </section>
     </main>
   );

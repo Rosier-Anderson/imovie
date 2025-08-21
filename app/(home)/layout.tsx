@@ -13,7 +13,7 @@ export default function HomeLayout({
       <Header />
       <div className="flex max-w-[1300px] mx-auto">
         <SideNav />
-        <div className=" mx-auto mt-15">{children}</div>
+        <div className=" mx-auto mt-6">{children}</div>
       </div>
     </div>
   );

@@ -9,6 +9,7 @@ const options = {
 const BaseUrl: string = "https://api.themoviedb.org/3";
 const pageNumber: number = 1;
 const Language: string = "en-US";
+const id: number = 343611;
 
 const tmdbEndpoints = {
   movieUrl: `/discover/movie?include_adult=false&include_video=true&Language=${Language}&page=${pageNumber}&sort_by=popularity.desc`,
@@ -17,6 +18,7 @@ const tmdbEndpoints = {
   upcomingMoviesUrl: `/movie/upcoming?Language=${Language}&page=${pageNumber}`,
   movieGenresUrl: `/genre/movie/list?language=en`,
   tvGenresUrl: `/genre/tv/list?language=en`,
+  movieDetails: `https://api.themoviedb.org/3/movie/${id}`,
 };
 
 /**
@@ -46,3 +48,5 @@ export const fetchUpcomingMovies = () =>
 export const fetchMovieGenres = () =>
   fetchFromTMDB(tmdbEndpoints.movieGenresUrl);
 export const fetchTvGenres = () => fetchFromTMDB(tmdbEndpoints.tvGenresUrl);
+export const fetchMovieDetails = () =>
+  fetchFromTMDB(tmdbEndpoints.movieDetails);

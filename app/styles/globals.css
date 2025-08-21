@@ -45,21 +45,20 @@
       =========================== */
 @layer utilities {
   .size-screen {
-    @apply w-screen ;
+    @apply w-screen;
     @apply h-screen;
   }
 }
 
 @layer utilities {
   .webkit-scrollbar-style {
-    @apply [&::-webkit-scrollbar]:h-2.5;
+    @apply [&::-webkit-scrollbar]:h-3;
     @apply [&::-webkit-scrollbar-track]:bg-gray-primary;
     @apply [&::-webkit-scrollbar-track]:rounded-md;
     @apply [&::-webkit-scrollbar-thumb]:bg-gray-secondary;
     @apply [&::-webkit-scrollbar-thumb]:rounded-md;
   }
 }
-
 
 /* ===========================
       Dark Mode (optional future use)

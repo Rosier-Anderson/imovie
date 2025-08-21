@@ -47,3 +47,8 @@ export interface galleryCardProps {
   vote: number;
   release_date: string;
 }
+
+export type Genre = {
+  id: number;
+  name: string;
+};

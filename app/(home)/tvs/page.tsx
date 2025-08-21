@@ -1,15 +1,23 @@
-import { fetchAllTvs } from "@/app/lib/data";
-import { tvDataProps } from "@/app/lib/definitions";
+import { fetchAllTvs, fetchTvGenres } from "@/app/lib/data";
+import {
+  Genre,
+  moviesResultsProps,
+  tvResultsProps,
+} from "@/app/lib/definitions";
+import Genres from "@/app/ui/filters/Genres";
 import Gallery from "@/app/ui/home/components/GalleryUI/Gallery";
 
 export default async function TVPage() {
-  const tvData: tvDataProps = await fetchAllTvs();
+  const [{ results: tvData }, { genres: tvGenres }]: [
+    { results: (moviesResultsProps | tvResultsProps)[] },
+    { genres: Genre[] }
+  ] = await Promise.all([fetchAllTvs(), fetchTvGenres()]);
 
   return (
     <main>
-    
+      <Genres data={tvGenres} />
       <section>
-        <Gallery data={tvData.results} />
+        <Gallery data={tvData} />
       </section>
     </main>
   );

@@ -2,7 +2,8 @@
 import { Logo } from "./Logo";
 import SearchInput from "../Search/SearchInput";
 import Login from "@/app/(auth)/login/page";
-import ToggleThemeButton from "@/app/ui/ToggleTheme";
+import ToggleThemeButton from "@/app/ui/theme/ToggleTheme";
+
 export default function Header() {
   return (
     <div className="w-full bg-white dark:bg-neutral-primary border-b border-b-gray-secondary dark:border-b-neutral-primary h-20 md:col-span-3 sticky top-0 z-50">

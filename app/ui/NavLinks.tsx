@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import clsx from "clsx";
-import { NavlinkProps } from "../../lib/definitions";
-import { assideLinks } from "../../lib/nav-links";
+import { NavlinkProps } from "../lib/definitions";
+import { assideLinks } from "../lib/nav-links";
 import { usePathname } from "next/navigation";
 
 export function NavLinks() {
