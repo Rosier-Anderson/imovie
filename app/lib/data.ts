@@ -20,7 +20,8 @@ const tmdbEndpoints = {
   tvGenresUrl: `/genre/tv/list?language=en`,
   movieDetails: `https://api.themoviedb.org/3/movie/${id}`,
 };
-
+// const url = 'https://api.themoviedb.org/3/trending/movie/day?language=en-US'; // trending banner movies 
+// const url = 'https://api.themoviedb.org/3/trending/person/week?language=en-US' // Trending people 
 /**
  * Fetch movie data from TMDB
  * @param url Full TMDB endpoint URL

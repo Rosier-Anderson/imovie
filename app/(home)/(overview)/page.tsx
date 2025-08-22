@@ -5,10 +5,10 @@ import {
 } from "@/app/lib/data";
 import Gallery from "@/app/ui/home/components/GalleryUI/Gallery";
 import { moviesResultsProps, tvResultsProps } from "@/app/lib/definitions";
-import BannerTrending from "@/app/ui/home/components/Banners/BannerTrending";
-import BannerNews from "@/app/ui/home/components/Banners/BannnerNews";
 import { MdOutlinePlayCircle } from "react-icons/md";
 import { PiClockCountdownFill } from "react-icons/pi";
+import BannerTrending from "@/app/ui/home/Banners/BannerTrending";
+import BannerNews from "@/app/ui/home/Banners/BannnerNews";
 export default async function HomePage() {
   const [{ results: upcomingMovies }, { results: nowPlayingMoviesData }]: [
     { results: (moviesResultsProps | tvResultsProps)[] },
