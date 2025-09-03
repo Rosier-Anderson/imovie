@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./styles/globals.css";
 import { inter } from "./fonts";
+import Footer from "./ui/footer/Footer";
 
 export const metadata: Metadata = {
   title: "I-movie App",
@@ -16,9 +17,10 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning className="dark">
       <body
         cz-shortcut-listen="true"
-        className={`${inter.className} antialiased `}
+        className={`${inter.className} antialiased dark:bg-neutral-primary `}
       >
         {children}
+        <Footer />
       </body>
     </html>
   );

@@ -3,7 +3,7 @@ import React from "react";
 
 export default async function Genres({ data }: { data: Genre[] }) {
   return (
-    <div className="w-[1000px] overflow-hidden ">
+    <div className="w-[750px] overflow-hidden ">
       {" "}
       <ul
         className="flex gap-2

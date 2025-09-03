@@ -1,26 +1,39 @@
 import {
   fetchMovieDetails,
   fetchNowPlayingMovies,
+  fetchTrendingMovie,
   fetchUpcomingMovies,
 } from "@/app/lib/data";
 import Gallery from "@/app/ui/home/components/GalleryUI/Gallery";
-import { moviesResultsProps, tvResultsProps } from "@/app/lib/definitions";
+import {
+  moviesResultsProps,
+  trendingMovieProps,
+  tvResultsProps,
+} from "@/app/lib/definitions";
 import { MdOutlinePlayCircle } from "react-icons/md";
 import { PiClockCountdownFill } from "react-icons/pi";
-import BannerTrending from "@/app/ui/home/Banners/BannerTrending";
-import BannerNews from "@/app/ui/home/Banners/BannnerNews";
+import BannerTrending from "@/app/ui/home/Banner/BannerTrending";
+import BannerNews from "@/app/ui/home/Banner/BannnerNews";
 export default async function HomePage() {
-  const [{ results: upcomingMovies }, { results: nowPlayingMoviesData }]: [
+  const [
+    { results: upcomingMovies },
+    { results: nowPlayingMoviesData },
+    { results: trendingMovie },
+  ]: [
     { results: (moviesResultsProps | tvResultsProps)[] },
-    { results: (moviesResultsProps | tvResultsProps)[] }
-  ] = await Promise.all([fetchUpcomingMovies(), fetchNowPlayingMovies()]);
-  const movieDetails = fetchMovieDetails();
-  console.log(nowPlayingMoviesData);
+    { results: (moviesResultsProps | tvResultsProps)[] },
+    { results: trendingMovieProps[] }
+  ] = await Promise.all([
+    fetchUpcomingMovies(),
+    fetchNowPlayingMovies(),
+    fetchTrendingMovie(),
+  ]);
+
   return (
     <main className="size-full ">
       {/* Banners */}
       <section className="flex gap-4">
-        <BannerTrending />
+        <BannerTrending trendingMovie={trendingMovie} />
         <BannerNews />
       </section>
       {/* Playing Movies */}

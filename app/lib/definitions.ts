@@ -31,6 +31,14 @@ export interface moviesResultsProps {
   release_date: string;
   title: string;
 }
+export interface trendingMovieProps {
+  backdrop_path: string;
+  media_type: string;
+  overview: string;
+  title: string;
+  id: number;
+}
+//
 // tv types
 export interface tvDataProps extends moviesDataProps {}
 export interface tvResultsProps {

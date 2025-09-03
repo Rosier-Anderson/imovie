@@ -9,7 +9,11 @@ export default function GalleryCard(props: galleryCardProps) {
   const { imgURL, title, release_date, vote } = props;
   const PUBLIC_IMG_URL = process.env.NEXT_PUBLIC_IMAGE_BASE;
   return (
-    <div className="rounded-lg border border-gray-secondary dark:border-neutral-secondary shadow-md/5 max-w-[200px] sm:max-w-[300px] min-h-[300px] sm:min-h-[340px]  overflow-hidden">
+    <div
+      className="rounded-lg border border-gray-secondary dark:border-neutral-secondary shadow-md/5 max-w-[200px] sm:max-w-[300px] min-h-[300px] sm:min-h-[340px]  overflow-hidden"
+      title={`${title}`}
+      aria-label={`${title}`}
+    >
       <Link href="" className="flex flex-col justify-between items-start ">
         <figure className="size-full  hover:opacity-80 transition-colors ease-in duration-300">
           <Image
