@@ -1,23 +1,25 @@
 import Image from "next/image";
 import React from "react";
-
 import Link from "next/link";
 import { HiOutlineUserGroup } from "react-icons/hi";
 import { galleryCardProps } from "@/app/lib/definitions";
+import { imageLoader } from "@/app/utils/imageLoader";
 
 export default function GalleryCard(props: galleryCardProps) {
-  const { imgURL, title, release_date, vote } = props;
-  const PUBLIC_IMG_URL = process.env.NEXT_PUBLIC_IMAGE_BASE;
+  const { imgURL, title, release_date, vote, id, genre } = props;
   return (
     <div
       className="rounded-lg border border-gray-secondary dark:border-neutral-secondary shadow-md/5 max-w-[200px] sm:max-w-[300px] min-h-[300px] sm:min-h-[340px]  overflow-hidden"
       title={`${title}`}
       aria-label={`${title}`}
     >
-      <Link href="" className="flex flex-col justify-between items-start ">
+      <Link
+        href={`/info/${genre}/${id}`}
+        className="flex flex-col justify-between items-start "
+      >
         <figure className="size-full  hover:opacity-80 transition-colors ease-in duration-300">
           <Image
-            src={`${PUBLIC_IMG_URL}/${imgURL}`}
+            src={imageLoader(imgURL)}
             width={200}
             height={200}
             alt="movie image"

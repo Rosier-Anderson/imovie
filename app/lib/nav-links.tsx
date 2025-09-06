@@ -28,7 +28,7 @@ export const assideLinks = [
   {
     label: "",
     href: "",
-    icon: <hr className=" w-full opacity-25" />,
+    icon: <hr aria-disabled className=" w-full opacity-25  " />,
   },
 
   {

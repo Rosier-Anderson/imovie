@@ -17,7 +17,7 @@ export default async function TVPage() {
     <main>
       <Genres data={tvGenres} />
       <section>
-        <Gallery data={tvData} />
+        <Gallery data={tvData} gallleryGenre="tv" />
       </section>
     </main>
   );

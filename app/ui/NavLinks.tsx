@@ -8,6 +8,8 @@ import { usePathname } from "next/navigation";
 
 export function NavLinks() {
   const pathname = usePathname();
+  const pathIncludesCheck =
+    pathname.includes("info") || pathname.includes("watch");
   const links: NavlinkProps[] = assideLinks;
   return (
     <>
@@ -16,8 +18,8 @@ export function NavLinks() {
           {links.map(({ href, icon, label }, index) => {
             return (
               <li key={index} className="m-2 ">
-                {index == 4 ? (
-                  <hr className=" w-full opacity-25 dark:text-neutral-secondary" />
+                {index === 4 && pathIncludesCheck ? (
+                  ""
                 ) : (
                   <Link
                     href={href}
@@ -29,7 +31,7 @@ export function NavLinks() {
                     )}
                   >
                     {icon}
-                    {label}
+                    {pathIncludesCheck ? "" : label}
                   </Link>
                 )}
               </li>

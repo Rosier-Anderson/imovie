@@ -9,14 +9,13 @@ const options = {
 const BaseUrl: string = "https://api.themoviedb.org/3";
 const pageNumber: number = 1;
 const language: string = "en-US";
-const id: number = 343611;
 
 const tmdbEndPoints = {
   movieUrl: `/discover/movie?include_adult=false&include_video=true&language=${language}&page=${pageNumber}&sort_by=popularity.desc`,
   nowPlayingMovieUrl: `/movie/now_playing?language=${language}&page=${pageNumber}`,
   upcomingMoviesUrl: `/movie/upcoming?language=${language}&page=${pageNumber}`,
   movieGenresUrl: `/genre/movie/list?Language=en`,
-  movieDetails: `/movie/${id}`,
+  movieDetails: `/movie/`,
   tvUrl: `/discover/tv?include_adult=false&include_null_first_air_dates=false&language=${language}|&page=${pageNumber}&sort_by=popularity.desc`,
   tvGenresUrl: `/genre/tv/list?Language=en`,
   trendingMovieUrl: `/trending/movie/day?language=${language}`,
@@ -28,9 +27,10 @@ const tmdbEndPoints = {
  * @param options Fetch options with headers
  */
 
-export async function fetchFromTMDB(path: string) {
+export async function fetchFromTMDB(path: string, id?: number) {
   try {
-    const res = await fetch(`${BaseUrl}${path}`, options);
+    const URL = id ? `${BaseUrl}${path}${id}` : `${BaseUrl}${path}`;
+    const res = await fetch(URL, options);
     if (!res.ok) throw new Error(`Error ${res.status}: ${res.statusText}`);
     const data = await res.json();
     return data;
@@ -47,8 +47,8 @@ export const fetchUpcomingMovies = () =>
   fetchFromTMDB(tmdbEndPoints.upcomingMoviesUrl);
 export const fetchMovieGenres = () =>
   fetchFromTMDB(tmdbEndPoints.movieGenresUrl);
-export const fetchMovieDetails = () =>
-  fetchFromTMDB(tmdbEndPoints.movieDetails);
+export const fetchMovieDetails = (id: number) =>
+  fetchFromTMDB(tmdbEndPoints.movieDetails, id);
 // TVs
 export const fetchAllTvs = () => fetchFromTMDB(tmdbEndPoints.tvUrl);
 export const fetchTvGenres = () => fetchFromTMDB(tmdbEndPoints.tvGenresUrl);

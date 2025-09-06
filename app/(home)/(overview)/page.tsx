@@ -47,7 +47,7 @@ export default async function HomePage() {
             <MdOutlinePlayCircle className="w-6.5 h-6.5" />
           </div>
 
-          <Gallery data={nowPlayingMoviesData} />
+          <Gallery data={nowPlayingMoviesData} gallleryGenre="movie" />
         </div>
       </section>
       {/* Upcomming Movies */}
@@ -61,7 +61,7 @@ export default async function HomePage() {
             <PiClockCountdownFill className="w-6.5 h-6.5" />
           </div>
 
-          <Gallery data={upcomingMovies} />
+          <Gallery data={upcomingMovies} gallleryGenre="movie" />
         </div>
       </section>
     </main>

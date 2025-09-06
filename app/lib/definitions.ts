@@ -30,6 +30,8 @@ export interface moviesResultsProps {
   vote_count: number;
   release_date: string;
   title: string;
+
+  id: number;
 }
 export interface trendingMovieProps {
   backdrop_path: string;
@@ -47,16 +49,19 @@ export interface tvResultsProps {
   vote_count: number;
   first_air_date: string;
   name: string;
+  id: number;
 }
 // gallery props
-export interface galleryCardProps {
-  imgURL: string;
-  title: string;
-  vote: number;
-  release_date: string;
-}
 
 export type Genre = {
   id: number;
   name: string;
 };
+export interface galleryCardProps {
+  imgURL: string;
+  title: string;
+  vote: number;
+  release_date: string;
+  id: number;
+  genre: string;
+}

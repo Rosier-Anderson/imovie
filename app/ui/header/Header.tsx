@@ -1,8 +1,7 @@
-"use client";
 import { Logo } from "./Logo";
-import SearchInput from "../Search/SearchInput";
-import Login from "@/app/(auth)/login/page";
 import ToggleThemeButton from "@/app/ui/theme/ToggleTheme";
+import Login from "@/app/login/page";
+import SearchInput from "../home/components/Search/SearchInput";
 
 export default function Header() {
   return (

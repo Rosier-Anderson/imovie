@@ -1,5 +1,6 @@
 "use client";
 import { trendingMovieProps } from "@/app/lib/definitions";
+import { imageLoader } from "@/app/utils/imageLoader";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -11,7 +12,6 @@ function BannerTrending({
 }: {
   trendingMovie: trendingMovieProps[];
 }) {
-  const Img_Base_URL = process.env.NEXT_PUBLIC_IMAGE_BASE; // base url movie
   const [moveToNextSlide, setMoveToNextSlide] = useState<number>(0);
   const movie = trendingMovie[moveToNextSlide];
 
@@ -24,7 +24,7 @@ function BannerTrending({
         <div className="">
           <figure className="size-full inset-0 absolute saturate-150 brightness-125 ">
             <Image
-              src={`${Img_Base_URL}${movie.backdrop_path}`}
+              src={imageLoader(movie.backdrop_path)}
               alt="Banner movie picture"
               className="object-cover object-center size-full "
               fill

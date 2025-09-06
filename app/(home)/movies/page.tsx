@@ -3,12 +3,14 @@ import { Genre, moviesDataProps } from "@/app/lib/definitions";
 import Genres from "@/app/ui/filters/Genres";
 import { SortBy } from "@/app/ui/filters/SortBy";
 import Gallery from "@/app/ui/home/components/GalleryUI/Gallery";
+import UrlMovieHander from "./UrlMovieHandler";
 
 export default async function MoviePage() {
   const [moviesData, { genres: movieGenres }]: [
     moviesDataProps,
     { genres: Genre[] }
   ] = await Promise.all([fetchAllMovie(), fetchMovieGenres()]);
+
   return (
     <main className="">
       <div className="flex">
@@ -18,7 +20,7 @@ export default async function MoviePage() {
 
       <section className="">
         <h1 className="">Suggest For You</h1>
-        <Gallery data={moviesData.results} />
+        <Gallery data={moviesData.results} gallleryGenre="movie" />
       </section>
     </main>
   );

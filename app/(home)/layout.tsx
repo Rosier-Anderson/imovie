@@ -1,7 +1,7 @@
 // app/(home)/layout.tsx
 
-import Header from "@/app/ui/home/components/header/Header";
-import SideNav from "../ui/home/components/asside/SideNav";
+import SideNav from "../ui/asside/SideNav";
+import Header from "../ui/header/Header";
 
 export default function HomeLayout({
   children,
@@ -11,6 +11,7 @@ export default function HomeLayout({
   return (
     <div className="bg-white dark:bg-neutral-primary mb-20 ">
       <Header />
+
       <div className="flex max-w-[1300px] mx-auto ">
         <SideNav />
         <div className=" mx-auto mt-6">{children}</div>

@@ -1,4 +1,3 @@
-"use client";
 import React, { Suspense } from "react";
 import { moviesResultsProps, tvResultsProps } from "@/app/lib/definitions";
 import GalleryCard from "./GalleryCard";
@@ -8,8 +7,10 @@ import GallerySkeleton from "./GallerySkeleton";
 
 export default function Gallery({
   data,
+  gallleryGenre,
 }: {
   data: (moviesResultsProps | tvResultsProps)[];
+  gallleryGenre: string;
 }) {
   return (
     <Suspense fallback={<GallerySkeleton />}>
@@ -22,6 +23,8 @@ export default function Gallery({
                 vote={item.vote_count}
                 title={getGalleryCardTitle(item)}
                 release_date={getGalleryCardDate(item)}
+                id={item.id}
+                genre={gallleryGenre}
               />
             </li>
           );
