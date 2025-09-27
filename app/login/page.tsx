@@ -3,10 +3,12 @@ import React from "react";
 
 export default function Login() {
   return (
-    <div className="hidden md:block text-white font-bold">
-      <CustomLink href="/login" className="bg-red-primary rounded-md ">
-        Sign in
-      </CustomLink>
-    </div>
+    <main className="size-screen flex justify-center items-center">
+     <article className="w-3xl bg-white">
+      <section className="">
+        <h1 className="">Sign In</h1>
+      </section>
+     </article>
+    </main>
   );
 }
