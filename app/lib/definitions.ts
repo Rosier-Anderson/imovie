@@ -10,6 +10,12 @@ export type CustomLinkProps = {
 };
 
 // Interfaces
+export interface MovieProps {
+  title: string;
+  poster_path: string;
+  backdrop_path: string;
+  vote_count: number;
+}
 export interface SearchToggleProps {
   isVisible: boolean;
   onToggle: () => void;
@@ -17,7 +23,7 @@ export interface SearchToggleProps {
 export interface SearchFieldProps {
   isVisible?: boolean;
 }
-// movie types
+
 export interface moviesDataProps {
   page: number;
   results: [];

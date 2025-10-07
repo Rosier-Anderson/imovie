@@ -1,38 +1,33 @@
+import React from "react";
+import Backdrop from "@/app/(group)/Backdrop";
+import Poster from "@/app/(group)/Poster";
 import { fetchMovieDetails } from "@/app/lib/data";
+import { MovieProps } from "@/app/lib/definitions";
 import SideNav from "@/app/ui/asside/SideNav";
 import Header from "@/app/ui/header/Header";
-import { imageLoader } from "@/app/utils/imageLoader";
-import Image from "next/image";
-
-import React from "react";
 
 async function Movie({ params }: { params: Promise<{ id: number }> }) {
   const { id } = await params;
-  interface Movie {
-    title: string;
-    poster_path: string;
-    backdrop_path: string;
-    vote_count: number;
-  }
+
   const movie = await fetchMovieDetails(id);
-  const { title, poster_path, backdrop_path, vote_count }: Movie = movie;
+  const { title, poster_path, backdrop_path, vote_count }: MovieProps = movie;
   console.log(movie);
   return (
-    <div className="">
+    <div className="w-sreen h-screen ">
       <Header />
       <div className="flex">
         <SideNav />
-        <section className="w-full bg-red-primary">
-          <div className=" w-full h-[400px] overflow-hidden">
-            <figure className=" relative size-full ">
-              <Image
-                src={imageLoader(backdrop_path)}
-                alt={`${title} picture`}
-                className=" object-cover object-center "
-                fill
-                priority
-              />
-            </figure>
+        <section className=" w-full ">
+          <div className="relative flex --flex-col " dir="ltr">
+            <Backdrop backdrop_path={backdrop_path} title={title} />
+            <div className="absolute --inset-x-12 start-12 bottom-16 h-16 ">
+              <Poster poster_path={poster_path} title={title} />
+              <div className="">{/* button */}</div>
+            </div>
+            <div className="absolute left-80 bottom-16 h-16  ">
+              {" "}
+              <h1 className="text-4xl font-bold text-white ">{title}</h1>
+            </div>
           </div>
         </section>
       </div>
