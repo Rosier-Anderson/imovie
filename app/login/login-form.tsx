@@ -1,48 +1,49 @@
-import React from "react";
+"use client";
+import React, { useActionState } from "react";
+import { login } from "../lib/actions";
 
-async function LoginForm() {
-  "use server";
+function LoginForm() {
+  const [state, loginAction] = useActionState(login, undefined);
 
   return (
-    <form
-      method="POST"
-      action="api/login"
-      className="flex flex-col text-base space-y-4"
-    >
-      {/* Email Field */}
-      <div className="flex flex-col">
-        <label htmlFor="email" className="text-sm font-medium text-gray-700 mb-1">
-          Email Address
-        </label>
+    <form action={loginAction} className=" flex flex-col gap-6">
+      <label
+        htmlFor="username"
+        className="border border-gray-secondary rounded relative "
+      >
         <input
-          id="email"
-          type="email"
-          name="email"
-          placeholder="you@example.com"
-          required
-          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+          id="username"
+          type="text"
+          name="username"
+          placeholder="Username"
+          className="block w-full h-11 text-sm p-2 focus:outline-gray-secondary"
         />
-      </div>
+      </label>
 
       {/* Password Field */}
-      <div className="flex flex-col">
-        <label htmlFor="password" className="text-sm font-medium text-gray-700 mb-1">
-          Password
-        </label>
+      <label
+        htmlFor="password"
+        className="border border-gray-secondary rounded pb-0"
+      >
         <input
           id="password"
           type="password"
           name="password"
-          placeholder="••••••••"
-          required
-          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+          placeholder="Password"
+          className="w-full h-11 text-sm p-2 focus:outline-gray-secondary"
         />
-      </div>
-
+      </label>
+      <span className="whitespace-nowrap">
+        {state?.error.properties && (
+          <p className="text-red-primary">
+            {state.error.properties?.password?.errors}
+          </p>
+        )}
+      </span>
       {/* Submit Button */}
       <button
         type="submit"
-        className=" hover:bg-red-700 text-white font-semibold py-2 rounded-md transition-colors duration-200 bg-red-primary"
+        className="w-full h-11 rounded bg-red-primary font-semibold "
       >
         Sign In
       </button>

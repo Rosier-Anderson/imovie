@@ -1,3 +1,5 @@
+import dotenv from 'dotenv';
+dotenv.config();
 import type { Metadata } from "next";
 import "./styles/globals.css";
 import { inter } from "./fonts";
