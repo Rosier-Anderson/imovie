@@ -8,13 +8,13 @@ function LoginForm() {
   return (
     <form action={loginAction} className=" flex flex-col gap-6">
       <label
-        htmlFor="username"
+        htmlFor="user"
         className="border border-gray-secondary rounded relative "
       >
         <input
-          id="username"
+          id="user"
           type="text"
-          name="username"
+          name="user"
           placeholder="Username"
           className="block w-full h-11 text-sm p-2 focus:outline-gray-secondary"
         />
@@ -22,13 +22,13 @@ function LoginForm() {
 
       {/* Password Field */}
       <label
-        htmlFor="password"
+        htmlFor="pwd"
         className="border border-gray-secondary rounded pb-0"
       >
         <input
-          id="password"
-          type="password"
-          name="password"
+          id="pwd"
+          type="pwd"
+          name="pwd"
           placeholder="Password"
           className="w-full h-11 text-sm p-2 focus:outline-gray-secondary"
         />
@@ -36,7 +36,7 @@ function LoginForm() {
       <span className="whitespace-nowrap">
         {state?.error.properties && (
           <p className="text-red-primary">
-            {state.error.properties?.password?.errors}
+            {state.error.properties?.pwd?.errors}
           </p>
         )}
       </span>

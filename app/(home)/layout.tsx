@@ -1,6 +1,6 @@
 // app/(home)/layout.tsx
 
-import SideNav from "../ui/asside/SideNav";
+import SideNav from "../ui/SideNav";
 import Header from "../ui/header/Header";
 
 export default function HomeLayout({

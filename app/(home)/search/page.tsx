@@ -1,7 +1,7 @@
 export default function SearchPage() {
   return (
     <>
-      <main>Search</main>
+      <main className=" h-screen">Search</main>
     </>
   );
 }

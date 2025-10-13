@@ -1,30 +1,26 @@
 "use server";
 
 import z from "zod";
-import {  handleAuthConnection } from "./session";
+import { handleAuthUserConnection } from "./auth";
+import { userInfoSchema } from "./validators";
+import { extractJwtFromCookieString } from "../utils/extractJwtFromCokkie";
 
-const userInfoSchema = z.object({
-  username: z.string().trim(),
-  password: z
-    .string()
-    .min(8, { message: "Password must be at least 8 characters" })
-    .trim(),
-});
 export async function login(prevState: unknown, formData: FormData) {
-  const result = userInfoSchema.safeParse(Object.fromEntries(formData));
-
-  if (!result.success) {
+  const formDataResult = userInfoSchema.safeParse(Object.fromEntries(formData));
+  if (!formDataResult.success) {
     return {
-      error: z.treeifyError(result.error),
+      error: z.treeifyError(formDataResult.error),
     };
   }
   try {
+    const { user, pwd } = formDataResult.data;
+    const response = await handleAuthUserConnection(user, pwd);
+    if (!response?.ok) {
+      const { msg } = await response?.json();
+    }
+    const cookies = response?.headers?.getSetCookie().toString();
+    console.log(extractJwtFromCookieString(cookies));
   } catch (error) {
     console.log(error);
   }
-   const {username, password} = result.data
-
- await handleAuthConnection(username, password)
-
 }
-

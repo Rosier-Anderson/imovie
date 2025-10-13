@@ -1,7 +1,7 @@
 export default function SavedMovies() {
   return (
     <>
-      <main>savedMovies</main>
+      <main className="h-screen">savedMovies</main>
     </>
   );
 }
