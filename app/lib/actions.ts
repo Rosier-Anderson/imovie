@@ -23,15 +23,14 @@ export async function login(prevState: unknown, formData: FormData) {
     return {
       errors: {
         properties: {
- user: ["Invalid user or password"],
-        }
-       
+          user: ["Invalid user or password"],
+        },
       },
     };
   }
 
   await createSession(testUser.id);
-  redirect("/")
+  redirect("/");
 }
 
 // export function logout() {

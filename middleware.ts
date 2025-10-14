@@ -8,7 +8,7 @@ const protectedRoutes = ["/"];
 const publicRoutes = ["/login"];
 
 export default async function middleware(req: NextRequest) {
-  console.log(req)
+
   const path = req.nextUrl.pathname;
   const isProtectedRoutes = protectedRoutes.includes(path);
   const isPublicRoutes = publicRoutes.includes(path);

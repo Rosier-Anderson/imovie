@@ -6,7 +6,6 @@ import { useFormStatus } from "react-dom";
 
 function LoginForm() {
   const [state, loginAction] = useActionState(login, undefined);
-console.log(state?.errors.properties?.user?.toString())
   return (
     <form action={loginAction} className=" flex flex-col gap-6">
       <label

@@ -3,8 +3,9 @@ import Backdrop from "@/app/(group)/Backdrop";
 import Poster from "@/app/(group)/Poster";
 import { fetchMovieDetails } from "@/app/lib/data";
 import { MovieProps } from "@/app/lib/definitions";
-import SideNav from "@/app/ui/asside/SideNav";
+
 import Header from "@/app/ui/header/Header";
+import SideNav from "@/app/ui/SideNav";
 
 async function Movie({ params }: { params: Promise<{ id: number }> }) {
   const { id } = await params;
