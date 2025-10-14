@@ -47,6 +47,8 @@ function LoginForm() {
     </form>
   );
 }
+
+// Get the pending state of the submitting form 
 function SubmitButton(){
   const {pending} = useFormStatus();
 
