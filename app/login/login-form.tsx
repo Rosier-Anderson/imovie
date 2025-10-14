@@ -3,9 +3,10 @@ import React, { useActionState } from "react";
 import { login } from "../lib/actions";
 import { useFormStatus } from "react-dom";
 
+
 function LoginForm() {
   const [state, loginAction] = useActionState(login, undefined);
-
+console.log(state?.errors.properties?.user?.toString())
   return (
     <form action={loginAction} className=" flex flex-col gap-6">
       <label
@@ -35,31 +36,27 @@ function LoginForm() {
         />
       </label>
       <span className="whitespace-nowrap">
-        {state?.error.properties && (
-          <p className="text-red-primary">
-            {state.error.properties?.pwd?.errors}
-          </p>
-        )}
+        {state?.errors && <p className="text-red-primary">{state?.errors.properties?.user?.toString()}</p>}
       </span>
-  
+
       {/* Submit Button */}
-     <SubmitButton/>
+      <SubmitButton />
     </form>
   );
 }
 
-// Get the pending state of the submitting form 
-function SubmitButton(){
-  const {pending} = useFormStatus();
+// Get the pending state of the form
+function SubmitButton() {
+  const { pending } = useFormStatus();
 
   return (
-     <button
-      disabled={pending? true  : false}
-        type="submit"
-        className="w-full h-11 rounded bg-red-primary font-semibold  cursor-pointer"
-      >
-        Sign In
-      </button>
-  )
+    <button
+      disabled={pending}
+      type="submit"
+      className="w-full h-11 rounded bg-red-primary font-semibold  cursor-pointer"
+    >
+      Sign In
+    </button>
+  );
 }
 export default LoginForm;
