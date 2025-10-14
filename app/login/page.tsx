@@ -14,7 +14,7 @@ export default function LoginPage() {
             </h1>
           </div>
           <div className="">
-            <Suspense>
+            <Suspense fallback={<p className="bg-red-primary">Loading</p>}>
               <LoginForm />
             </Suspense>
           </div>

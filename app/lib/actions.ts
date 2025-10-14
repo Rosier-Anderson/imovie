@@ -3,7 +3,16 @@
 import z from "zod";
 import { handleAuthUserConnection } from "./auth";
 import { userInfoSchema } from "./validators";
-import { extractJwtFromCookieString } from "../utils/extractJwtFromCokkie";
+import { parseJwt } from "../utils/parseJWT";
+
+
+type userInfoProps = {
+  username: string;
+  roles: [number];
+};
+type tokenProps = {
+  accessToken: string;
+};
 
 export async function login(prevState: unknown, formData: FormData) {
   const formDataResult = userInfoSchema.safeParse(Object.fromEntries(formData));
@@ -16,10 +25,14 @@ export async function login(prevState: unknown, formData: FormData) {
     const { user, pwd } = formDataResult.data;
     const response = await handleAuthUserConnection(user, pwd);
     if (!response?.ok) {
-      const { msg } = await response?.json();
+      console.log(await response?.json());
     }
-    const cookies = response?.headers?.getSetCookie().toString();
-    console.log(extractJwtFromCookieString(cookies));
+    const token: tokenProps = await response?.json();
+    const { UserInfo }: { UserInfo: userInfoProps } = parseJwt(
+      token?.accessToken
+    );
+console.log(UserInfo)
+
   } catch (error) {
     console.log(error);
   }

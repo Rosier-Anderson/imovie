@@ -5,8 +5,7 @@ export async function handleAuthUserConnection(user: string, pwd: string) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-      }
-
+      },
       body: JSON.stringify({
         user,
         pwd,

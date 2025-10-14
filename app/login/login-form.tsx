@@ -1,6 +1,7 @@
 "use client";
 import React, { useActionState } from "react";
 import { login } from "../lib/actions";
+import { useFormStatus } from "react-dom";
 
 function LoginForm() {
   const [state, loginAction] = useActionState(login, undefined);
@@ -40,15 +41,23 @@ function LoginForm() {
           </p>
         )}
       </span>
+  
       {/* Submit Button */}
-      <button
-        type="submit"
-        className="w-full h-11 rounded bg-red-primary font-semibold "
-      >
-        Sign In
-      </button>
+     <SubmitButton/>
     </form>
   );
 }
+function SubmitButton(){
+  const {pending} = useFormStatus();
 
+  return (
+     <button
+      disabled={pending? true  : false}
+        type="submit"
+        className="w-full h-11 rounded bg-red-primary font-semibold  cursor-pointer"
+      >
+        Sign In
+      </button>
+  )
+}
 export default LoginForm;
