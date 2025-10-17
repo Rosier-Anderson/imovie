@@ -1,19 +1,10 @@
 "use client";
 import { useSearchParams } from "next/navigation";
 import React, { useActionState } from "react";
-import { useFormStatus } from "react-dom";
-import { authenticate } from "../lib/actions";
 
 function LoginForm() {
-  const searchParams = useSearchParams();
-  const callbackUrl = searchParams.get("callbackUrl") || "/";
-  const [errorMessage, formAction, isPending] = useActionState(
-    authenticate,
-    undefined
-  );
-
   return (
-    <form action={formAction} className=" flex flex-col gap-6">
+    <form className=" flex flex-col gap-6">
       <label
         htmlFor="user"
         className="border border-gray-secondary rounded relative "
@@ -40,25 +31,17 @@ function LoginForm() {
           className="w-full h-11 text-sm p-2 focus:outline-gray-secondary"
         />
       </label>
-      <span className="whitespace-nowrap">
-        {errorMessage && (
-          <>
-            <p className="text-sm text-red-primary">{errorMessage}</p>
-          </>
-        )}
-      </span>
-      <input type="hidden" name="redirectTo" value={callbackUrl} />
+      <span className="whitespace-nowrap"></span>
+
       {/* Submit Button */}
       <SubmitButton />
     </form>
   );
 }
 function SubmitButton() {
-  const { pending } = useFormStatus();
-
   return (
     <button
-      aria-disabled={pending}
+      // aria-disabled={pending}
       type="submit"
       className="w-full h-11 rounded bg-red-primary font-semibold  cursor-pointer"
     >
