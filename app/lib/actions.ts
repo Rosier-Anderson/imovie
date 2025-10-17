@@ -1,39 +1,25 @@
 "use server";
 
-import z from "zod";
-import { handleAuthUserConnection } from "./auth";
-import { userInfoSchema } from "./validators";
-import { parseJwt } from "../utils/parseJWT";
+import { signIn } from "@/auth";
+import { AuthError } from "next-auth";
 
+// ...
 
-type userInfoProps = {
-  username: string;
-  roles: [number];
-};
-type tokenProps = {
-  accessToken: string;
-};
-
-export async function login(prevState: unknown, formData: FormData) {
-  const formDataResult = userInfoSchema.safeParse(Object.fromEntries(formData));
-  if (!formDataResult.success) {
-    return {
-      error: z.treeifyError(formDataResult.error),
-    };
-  }
+export async function authenticate(
+  prevState: string | undefined,
+  formData: FormData
+) {
   try {
-    const { user, pwd } = formDataResult.data;
-    const response = await handleAuthUserConnection(user, pwd);
-    if (!response?.ok) {
-      console.log(await response?.json());
-    }
-    const token: tokenProps = await response?.json();
-    const { UserInfo }: { UserInfo: userInfoProps } = parseJwt(
-      token?.accessToken
-    );
-console.log(UserInfo)
-
+    await signIn("credentials", formData);
   } catch (error) {
-    console.log(error);
+    if (error instanceof AuthError) {
+      switch (error.type) {
+        case "CredentialsSignin":
+          return "Invalid credentials.";
+        default:
+          return "Something went wrong.";
+      }
+    }
+    throw error;
   }
 }

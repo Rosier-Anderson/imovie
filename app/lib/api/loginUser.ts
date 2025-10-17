@@ -1,5 +1,5 @@
-//  handle  user Authentication from the backend server
-export async function handleAuthUserConnection(user: string, pwd: string) {
+//  handle  user login from the backend server
+export async function LoginUser(user: string, pwd: string) {
   try {
     const response = await fetch("https://i-movie-backend.onrender.com/auth", {
       method: "POST",
