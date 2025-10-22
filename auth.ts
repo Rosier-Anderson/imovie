@@ -1,13 +1,20 @@
 import NextAuth from "next-auth";
-import credentials from "next-auth/providers/credentials";
+import Credentials from "next-auth/providers/credentials";
 import GitHub from "next-auth/providers/github";
 
 export const { auth, handlers, signIn, signOut } = NextAuth({
+  pages: {
+    signIn: "/profile"
+  }, 
   providers: [
     GitHub({
-      clientId: process.env.AUTH_GITHUB_ID!,
-      clientSecret: process.env.AUTH_GITHUB_SECRET!,
+      clientId: process.env.AUTH_GITHUB_ID,
+      clientSecret: process.env.AUTH_GITHUB_SECRET,
     }),
-    credentials({}),
+   Credentials({
+    async authorize(credentials) {
+      console.log(credentials)
+    }
+   })
   ],
 });

@@ -23,7 +23,7 @@ export async function loginWithCredentials(
 }
 export async function loginWithGitHub() {
   try {
-    await signIn("github", { redirectTo: "/" });
+    await signIn("github", { redirectTo: "/profile" });
   } catch (error) {
     if (error instanceof AuthError) {
       switch (error.type) {

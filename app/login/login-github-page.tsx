@@ -1,6 +1,4 @@
 "use client";
-
-import { signIn } from "next-auth/react";
 import { FaGithub } from "react-icons/fa";
 import { loginWithGitHub } from "../lib/actions";
 
