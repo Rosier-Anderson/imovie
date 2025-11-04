@@ -1,9 +1,11 @@
 import { fetchAllMovie, fetchMovieGenres } from "@/app/lib/data";
-import { Genre, moviesDataProps } from "@/app/lib/definitions";
+
 import Genres from "@/app/ui/filters/Genres";
 import { SortBy } from "@/app/ui/filters/SortBy";
 import Gallery from "@/app/ui/home/components/GalleryUI/Gallery";
 import UrlMovieHander from "./UrlMovieHandler";
+import { moviesDataProps } from "@/app/interfaces";
+import { Genre } from "@/app/lib/definitions";
 
 export default async function MoviePage() {
   const [moviesData, { genres: movieGenres }]: [

@@ -5,15 +5,16 @@ import {
   fetchUpcomingMovies,
 } from "@/app/lib/data";
 import Gallery from "@/app/ui/home/components/GalleryUI/Gallery";
-import {
-  moviesResultsProps,
-  trendingMovieProps,
-  tvResultsProps,
-} from "@/app/lib/definitions";
+
 import { MdOutlinePlayCircle } from "react-icons/md";
 import { PiClockCountdownFill } from "react-icons/pi";
 import BannerTrending from "@/app/ui/home/Banner/BannerTrending";
 import BannerNews from "@/app/ui/home/Banner/BannnerNews";
+import {
+  moviesResultsProps,
+  trendingMovieProps,
+  tvResultsProps,
+} from "@/app/interfaces";
 export default async function HomePage() {
   const [
     { results: upcomingMovies },

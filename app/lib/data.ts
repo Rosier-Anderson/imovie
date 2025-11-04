@@ -22,7 +22,6 @@ const tmdbEndPoints = {
   trendingPeopleUrl: `/trending/person/week?language=${language}`,
 };
 
-
 /**
  * Fetch movie data from TMDB
  * @param options Fetch options with headers
@@ -39,14 +38,6 @@ export async function fetchFromTMDB(path: string, id?: number) {
     return null;
   }
 }
-
-// loggin api testing from th back end 
-
-
-
-
-
-
 
 export const fetchAllMovie = () => fetchFromTMDB(tmdbEndPoints.movieUrl);
 export const fetchNowPlayingMovies = () =>

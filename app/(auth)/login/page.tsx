@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { Logo } from "../ui/header/Logo";
+import { Logo } from "../../ui/header/Logo";
 import LoginForm from "./login-form";
 
 export default function LoginPage() {
