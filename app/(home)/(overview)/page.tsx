@@ -4,7 +4,7 @@ import {
   fetchTrendingMovie,
   fetchUpcomingMovies,
 } from "@/app/lib/data";
-import Gallery from "@/app/ui/home/components/GalleryUI/Gallery";
+import Gallery from "@/app/ui/home/_components/GalleryUI/Gallery";
 import {
   moviesResultsProps,
   trendingMovieProps,

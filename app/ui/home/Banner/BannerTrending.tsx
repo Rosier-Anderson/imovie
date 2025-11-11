@@ -1,6 +1,7 @@
 "use client";
 import { trendingMovieProps } from "@/app/lib/definitions";
-import { imageLoader } from "@/app/utils/imageLoader";
+import { imageLoader } from "@/app/utils";
+
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";

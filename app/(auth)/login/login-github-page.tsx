@@ -1,6 +1,7 @@
 "use client";
+import { loginWithGitHub } from "@/app/lib/actions";
 import { FaGithub } from "react-icons/fa";
-import { loginWithGitHub } from "../lib/actions";
+
 
 export function LoginGitHub() {
   return (

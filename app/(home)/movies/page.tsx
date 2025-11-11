@@ -2,7 +2,7 @@ import { fetchAllMovie, fetchMovieGenres } from "@/app/lib/data";
 import { Genre, moviesDataProps } from "@/app/lib/definitions";
 import Genres from "@/app/ui/filters/Genres";
 import { SortBy } from "@/app/ui/filters/SortBy";
-import Gallery from "@/app/ui/home/components/GalleryUI/Gallery";
+import Gallery from "@/app/ui/home/_components/GalleryUI/Gallery";
 import UrlMovieHander from "./UrlMovieHandler";
 
 export default async function MoviePage() {

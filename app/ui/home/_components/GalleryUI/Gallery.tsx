@@ -1,9 +1,9 @@
 import React, { Suspense } from "react";
 import { moviesResultsProps, tvResultsProps } from "@/app/lib/definitions";
 import GalleryCard from "./GalleryCard";
-import getGalleryCardDate from "@/app/utils/formatDates";
-import getGalleryCardTitle from "@/app/utils/formatGalleryCardTitle";
+
 import GallerySkeleton from "./GallerySkeleton";
+import { getGalleryCardDate, getGalleryCardTitle } from "@/app/utils";
 
 export default function Gallery({
   data,

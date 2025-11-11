@@ -3,7 +3,8 @@ import React from "react";
 import Link from "next/link";
 import { HiOutlineUserGroup } from "react-icons/hi";
 import { galleryCardProps } from "@/app/lib/definitions";
-import { imageLoader } from "@/app/utils/imageLoader";
+import { imageLoader } from "@/app/utils";
+
 
 export default function GalleryCard(props: galleryCardProps) {
   const { imgURL, title, release_date, vote, id, genre } = props;

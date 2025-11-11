@@ -1,8 +1,9 @@
 import { Suspense } from "react";
-import { Logo } from "../ui/header/Logo";
+
 import LoginForm from "./login-form";
 import { LoginGitHub } from "./login-github-page";
 import { auth } from "@/auth";
+import { Logo } from "@/app/ui/header/Logo";
 
 export default async function LoginPage() {
   const session = await auth();

@@ -1,8 +1,9 @@
 "use client";
+import { loginWithCredentials } from "@/app/lib/actions";
 import { signIn } from "@/auth";
 import { useSearchParams } from "next/navigation";
 import React, { useActionState } from "react";
-import { loginWithCredentials } from "../lib/actions";
+
 
 function LoginForm() {
   const [errorMessage, formAction] = useActionState(

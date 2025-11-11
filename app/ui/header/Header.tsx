@@ -1,6 +1,6 @@
 import { Logo } from "./Logo";
 import ToggleThemeButton from "@/app/ui/theme/ToggleTheme";
-import SearchInput from "../home/components/Search/SearchInput";
+import SearchInput from "../home/_components/Search/SearchInput";
 import SignInButton from "../profile/sign-button";
 
 // component

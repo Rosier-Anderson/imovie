@@ -5,7 +5,7 @@ import {
   tvResultsProps,
 } from "@/app/lib/definitions";
 import Genres from "@/app/ui/filters/Genres";
-import Gallery from "@/app/ui/home/components/GalleryUI/Gallery";
+import Gallery from "@/app/ui/home/_components/GalleryUI/Gallery";
 
 export default async function TVPage() {
   const [{ results: tvData }, { genres: tvGenres }]: [
